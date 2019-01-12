@@ -20,4 +20,11 @@ describe('Resultados de busqueda', function (){
         buscador.setearFiltro('MLA')
         assert.equal(buscador.filtro, 'MLA')
     })
+
+    it( 'Retorna que la lista de resultados ya no es vacia al setearle el parametro MLA al filtro del buscador', function(){
+        buscador.setearFiltro('MLA')
+        return buscador.obtenerResultados().then ( function() {
+            assert.notEqual(buscador.resultados, 0)
+        })
+    })
 })
