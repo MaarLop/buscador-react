@@ -1,0 +1,1 @@
+# Trinomio-Buscador
