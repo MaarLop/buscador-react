@@ -8,11 +8,16 @@ describe('Resultados de busqueda', function (){
         buscador = new buscadormod();
       });
 
-    it ( 'retorna 0 porque la lista de resultados esta vacia', function (){
+    it ( 'Retorna 0 porque la lista de resultados esta vacia', function (){
         assert.equal( buscador.resultados.length, 0 )
     })
 
-    it ('retorna un string vacio ya que al estar en estado inicial este no fue inicializado aun', function(){
+    it ('Retorna un string vacio ya que al estar en estado inicial este no fue inicializado aun', function(){
         assert.equal(buscador.filtro, '')
+    })
+
+    it ('Retorna MLA al realizar la consulta despues de inicializar el filtro en dicho parameto', function(){
+        buscador.setearFiltro('MLA')
+        assert.equal(buscador.filtro, 'MLA')
     })
 })
