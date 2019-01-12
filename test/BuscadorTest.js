@@ -1,8 +1,18 @@
 const assert = require('chai').assert
-const filtros = require('../Buscador')
+const buscadormod= require('../Buscador')
 
-describe('App', function (){
-    it ( 'retorna hello', function (){
-        assert.equal( filtros(), 'hello')
+describe('Resultados de busqueda', function (){
+    let buscador= null
+    
+    beforeEach(() => {
+        buscador = new buscadormod();
+      });
+
+    it ( 'retorna 0 porque la lista de resultados esta vacia', function (){
+        assert.equal( buscador.resultados.length, 0 )
+    })
+
+    it ('retorna un string vacio ya que al estar en estado inicial este no fue inicializado aun', function(){
+        assert.equal(buscador.filtro, '')
     })
 })

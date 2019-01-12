@@ -1,3 +1,8 @@
-module.exports = function (){
-    return 'hello'
+class Buscador{
+    constructor (){
+       this.resultados= []
+       this.filtro= ''
+    }
 }
+
+module.exports = Buscador;
