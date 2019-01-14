@@ -1,5 +1,5 @@
 const assert = require('chai').assert
-const buscadormod= require('../Modelo/Buscador')
+const buscadormod= require('../Backend/Modelo/Buscador')
 const chai= require('chai')
 
 describe('Resultados de busqueda', function (){
