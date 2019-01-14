@@ -50,6 +50,19 @@ class Buscador{
              this.categorias.push(categoriaRes)
         })
     }
+    
+    obtenerProductosRequeridos(){
+        this.obtenerResultados()
+            .then(()=>{
+                let categoriaEncontrada= this.categorias.find((_categoria)=>{
+                    return (_categoria.id === this.filtroCategoria)
+                })
+                return categoriaEncontrada.obtenerProductos(this.filtroPaises)
+            })
+            .catch(error =>{
+                throw error
+        })
+    }
 
 
 }

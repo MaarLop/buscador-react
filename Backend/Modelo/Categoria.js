@@ -1,4 +1,5 @@
 const mercadolibremod = require('./MercadoLibreClient')
+const productomod = require('./Producto')
 
 class Categoria {
     constructor(_id, _nombre){
@@ -6,14 +7,24 @@ class Categoria {
         this.nombre= _nombre
         this.productos=[]
     }
-    obtenerProductosRequeridos(){
+    obtenerProductos(id_pais){
         let client= new mercadolibremod()
-        return client.getProductosDe(this.filtroPaises, this.filtroCategoria)
+       return client.getProductosDe(id_pais,this.id)
         .then((_productos)=>{
-            this.productos= _productos.results
+            this.productos= this.agregarProductos(_productos.results)
+            return this.productos
         })
         .catch((err)=>{
             throw err
+        })
+    }
+    agregarProductos(_listProductos){
+        // console.log(_listProductos.length)
+        _listProductos.forEach((producto)=>{
+            let productoRes= new productomod(producto.id, producto.title, producto.price, producto.available_quantity,
+                producto.sold_quantity, producto.permalink, producto.thumbnail, producto.accepts_mercadopago,
+                producto.address.state_name, producto.address.city_name)
+            this.productos.push(productoRes)
         })
     }
 }

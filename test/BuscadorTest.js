@@ -30,12 +30,12 @@ describe('Resultados de busqueda', function (){
     //     assert.equal(buscador.filtroPaises, 'MLA')
     // })
 
-    it( 'Retorna que la lista de resultados ya no es vacia al setearle el parametro MLA al filtro del buscador', function(){
-        buscador.setearFiltro('MLA')
-        return buscador.obtenerResultados()//.then ( function() {
-            // assert.notEqual(buscador.categorias, 0)
-        // })
-    })
+    // it( 'Retorna que la lista de resultados ya no es vacia al setearle el parametro MLA al filtro del buscador', function(){
+    //     buscador.setearFiltro('MLA')
+    //     return buscador.obtenerResultados().then ( function() {
+    //         assert.notEqual(buscador.categorias, 0)
+    //     })
+    // })
 
     // it('Retorna el error producto de querer obtener las categorias sin antes setear un valor al filtro de pais', function(){
     //     chai.expect(()=> buscador.obtenerResultados()).to.throw( ingresarPais)
@@ -53,10 +53,10 @@ describe('Resultados de busqueda', function (){
     //     chai.expect(() => buscador.setearFiltroDeCategoria('MLA572')).to.throw(ingresarPais);
     // })
 
-    // it ('Al tener seteados los valores se puede obtener los resultados', function(){
-    //     buscador.setearFiltro('MLA')
-    //     buscador.setearFiltroDeCategoria('MLA5725')
-    //     buscador.obtenerProductosRequeridos()
-    //     assert.notEqual(buscador.categoriasFiltradas, 0)
-    // }) este no anda
+    it ('Al tener seteados los valores se puede obtener los resultados', function(){
+        buscador.setearFiltro('MLA')
+        buscador.setearFiltroDeCategoria('MLA5725')
+        
+        assert.notEqual(buscador.obtenerProductosRequeridos(), 0)
+    }) 
 })

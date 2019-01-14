@@ -24,6 +24,7 @@ class MercadoLibreClient{
     }
 
     getProductosDe(id_pais, id_categoria){
+        
         const _options= 
         {
             url: url_base+ id_pais+'/search?category='+id_categoria+'&official_store_id=all',
@@ -35,7 +36,7 @@ class MercadoLibreClient{
                     return this.promiseProductos
                 })
                 .catch ((error)=> {
-                    throw new Error('Categoria invalida')
+                    throw new Error(error)
                 })
     }
 }
