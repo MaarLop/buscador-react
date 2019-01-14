@@ -1,12 +1,12 @@
 //mercadolibremod es al que se recurre cuando necesitamos hacer pedidos a la pagina de mercado libre
 const mercadolibremod= require('./MercadoLibreClient')
+const categoria= require('./Categoria')
 
 class Buscador{
     constructor (){
        this.categorias= []
        this.filtroPaises= ''
        this.filtroCategoria= ''
-       this.productos= ''
     }
 
     //Setea el filtro de pais para proceder con la busqueda
@@ -20,7 +20,7 @@ class Buscador{
             let client = new mercadolibremod();
             return client.getCategoriasPara(this.filtroPaises).
                 then((_responseCategoria) => {
-                    this.categorias= _responseCategoria
+                    this.agregarCategorias(_responseCategoria)
                 })
                 .catch(err =>{
                     throw new Error('Id invalido')
@@ -42,16 +42,16 @@ class Buscador{
         }
     }
 
-    obtenerProductosRequeridos(){
-        let client= new mercadolibremod()
-        return client.getProductosDe(this.filtroPaises, this.filtroCategoria)
-        .then((_productos)=>{
-            this.productos= _productos.results
-        })
-        .catch((err)=>{
-            throw err
+    agregarCategorias(_listCategorias){
+        const categoriasAIterar= _listCategorias
+        
+        categoriasAIterar.forEach((_categoria)=>{
+            let categoriaRes= new categoria(_categoria.id, _categoria.name)
+             this.categorias.push(categoriaRes)
         })
     }
+
+
 }
 
-module.exports = Buscador;
+module.exports = Buscador,categoria;
