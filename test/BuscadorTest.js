@@ -4,7 +4,7 @@ const chai= require('chai')
 
 describe('Resultados de busqueda', function (){
     let buscador= null
-    
+    let ingresarPais= 'Ingrese Pais'
     beforeEach(() => {
         buscador = new buscadormod();
       });
@@ -32,20 +32,31 @@ describe('Resultados de busqueda', function (){
 
     it( 'Retorna que la lista de resultados ya no es vacia al setearle el parametro MLA al filtro del buscador', function(){
         buscador.setearFiltro('MLA')
-        return buscador.obtenerResultados().then ( function(r) {
+        return buscador.obtenerResultados().then ( function() {
             assert.notEqual(buscador.categorias, 0)
         })
     })
 
+    it('Retorna el error producto de querer obtener las categorias sin antes setear un valor al filtro de pais', function(){
+        chai.expect(()=> buscador.obtenerResultados()).to.throw( ingresarPais)
+    })
  
     // TEST DE FILTRO DE ARTICULOS DEPENDIENDO CATEGORIA Y PAIS
 
     it( 'Al setear un valor al campo de filtro de paises se puede setear el filtro de categorias', function(){
         buscador.setearFiltro('MLA')
-        buscador.setearFiltroDeCategoria('MLA572')
-        assert.equal(buscador.filtroCategoria, 'MLA572')
+        buscador.setearFiltroDeCategoria('MLA5725')
+        assert.equal(buscador.filtroCategoria, 'MLA5725')
     })
+
     it('Al no setearse un valor en el campo de filtro de paieses no se seteara el valor al campo de filtro de categorias', function(){
-        chai.expect(() => buscador.setearFiltroDeCategoria('MLA572')).to.throw('Ingrese Pais');
+        chai.expect(() => buscador.setearFiltroDeCategoria('MLA572')).to.throw(ingresarPais);
+    })
+
+    it ('Al tener seteados los valores se puede obtener los resultados', function(){
+        buscador.setearFiltro('MLA')
+        buscador.setearFiltroDeCategoria('MLA5725')
+        buscador.obtenerProductosRequeridos()
+        assert.notEqual(buscador.categoriasFiltradas, 0)
     })
 })
