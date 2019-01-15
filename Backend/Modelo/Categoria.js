@@ -19,19 +19,14 @@ class Categoria {
         })
     }
     agregarProductos(_listProductos){
+        let productosRes=[]
         _listProductos.forEach((producto)=>{
             let productoRes= new productomod(producto.id, producto.title, producto.price, producto.available_quantity,
                 producto.sold_quantity, producto.permalink, producto.thumbnail, producto.accepts_mercadopago,
                 producto.address.state_name, producto.address.city_name)
-            this.productos.push(productoRes)
+            productosRes.push(productoRes)
         })
-    }
-    toJSON(){
-        let productosJSON= []
-        // this.productos.forEach((producto)=>{
-        //     productosJSON.push()
-        // })
-        return {id: this.id, nombre: this.name, productos: productosJSON}
+        return productosRes
     }
 }
 

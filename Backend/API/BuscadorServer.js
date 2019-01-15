@@ -28,14 +28,14 @@ app.use(function(err, req, res, next) {
   });
 
 app.use('/api', router);
-app.use(errorHandler);
+// app.use(errorHandler);   
 
 
 router.route('/sitio/:id_sitio').get (function (req,res){
     buscador.setearFiltro(req.params.id_sitio)
     buscador.obtenerResultados()
-        .then((sitios)=>{
-            res.json(buscador.categoriasToJSON())
+        .then(()=>{
+            res.json(buscador.categorias)
         })
         .catch((error)=>{
                 res.status(404)
@@ -43,25 +43,39 @@ router.route('/sitio/:id_sitio').get (function (req,res){
             })
     })
 
+    router.route('/sitio/:id_sitio/productos').get (function (req,res){
+        buscador.setearFiltro(req.params.id_sitio)
+        buscador.setearFiltroDeCategoria(req.query.id_categoria)
+        buscador.obtenerResultados().then(()=>{
+            buscador.obtenerProductosRequeridos().then((productos)=>{
+                res.json(productos)
+            })
+        })
+    
 
-function errorHandler(err,req, res, next){
-    if (err instanceof error.APIError){
-        res.status(err.status);
-        res.json({status:err.status, errorCode: err.errorCode});
-    }
-    else{
-        console.log('Ups, algo fallo. Intente nuevamente más tarde')
-        res.status(500);
-        res.json({status:500,errorCode:'Ups, algo fallo. Intente nuevamente más tarde'})
-    }
-}
+            
+        })
+
+
+
+// function errorHandler(err,req, res, next){
+//     if (err instanceof error.APIError){
+//         res.status(err.status);
+//         res.json({status:err.status, errorCode: err.errorCode});
+//     }
+//     else{
+//         console.log('Ups, algo fallo. Intente nuevamente más tarde')
+//         res.status(500);
+//         res.json({status:500,errorCode:'Ups, algo fallo. Intente nuevamente más tarde'})
+//     }
+// }
 
 router.use((req, res) => {
     res.status(404);
     res.json({status: 404, errorCode: 'RESOURCE_NOT_FOUND'});
 });
 
-router.use(errorHandler);
+// router.use(errorHandler);
 
 app.listen(port);
 

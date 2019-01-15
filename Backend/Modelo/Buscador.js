@@ -7,6 +7,7 @@ class Buscador{
        this.categorias= []
        this.filtroPaises= ''
        this.filtroCategoria= ''
+       this.categoriaSeleccionada= null
     }
 
     //Setea el filtro de pais para proceder con la busqueda
@@ -19,8 +20,8 @@ class Buscador{
         if ( this.filtroPaises !== ''){
             let client = new mercadolibremod();
             return client.getCategoriasPara(this.filtroPaises).
-                then((_responseCategoria) => {
-                    this.agregarCategorias(_responseCategoria)
+                then((_responseCategorias) => {
+                    this.agregarCategorias(_responseCategorias)
                 })
                 .catch(err =>{
                     throw new Error('Id invalido')
@@ -52,25 +53,22 @@ class Buscador{
     }
     
     obtenerProductosRequeridos(){
-        this.obtenerResultados()
-            .then(()=>{
-                let categoriaEncontrada= this.categorias.find((_categoria)=>{
-                    return (_categoria.id === this.filtroCategoria)
+        this.encontrarCategoria()
+            return this.categoriaSeleccionada.obtenerProductos(this.filtroPaises)
+                .then(()=>{
+                    return this.categoriaSeleccionada.productos
                 })
-                return categoriaEncontrada.obtenerProductos(this.filtroPaises)
-            })
-            .catch(error =>{
-                throw error
+                .catch((err)=>{
+                    throw err
+                })
+    }
+
+    encontrarCategoria(){
+        this.categoriaSeleccionada= this.categorias.find((_categoria)=>{
+            return (_categoria.id === this.filtroCategoria)
         })
     }
-    categoriasToJSON(){
-        let jsonCategorias= []
-        this.categorias.forEach((_categotia)=>{
-                let catRes= _categotia.toJSON()
-                jsonCategorias.push(catRes)
-        })
-        return jsonCategorias
-    }
+
 
 }
 
