@@ -13,4 +13,10 @@ Express: npm i express
 
 Correr Test: npm run test
 
+Levantar el servidor( desde la carpeta API que se encuentra dentro de Backend): node BuscadorServer.js
+URL del servidor: http://localhost:5000/api
+Posibles endpoint: 
+*http://localhost:5000/api/sitio/{Id_SITIO}
+*http://localhost:5000/api/sitio/{Id_SITIO}//productos?id_categoria={Id_CATEGORIA}
+
 
