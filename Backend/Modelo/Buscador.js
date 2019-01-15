@@ -63,7 +63,14 @@ class Buscador{
                 throw error
         })
     }
-
+    categoriasToJSON(){
+        let jsonCategorias= []
+        this.categorias.forEach((_categotia)=>{
+                let catRes= _categotia.toJSON()
+                jsonCategorias.push(catRes)
+        })
+        return jsonCategorias
+    }
 
 }
 

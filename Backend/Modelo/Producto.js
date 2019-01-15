@@ -12,6 +12,10 @@ class Producto{
                     this.localidad= _localidad
                     this.provincia= _provincia
                 }
-    
+    productoToJSON(){
+        return ({id: this.id, titulo: this.titulo, precio: this.precio, stock: this.stock,
+                vendidos: this.vendidos, link: this.link, imagen: this.imagen, mercadoPago: this.mercadoPago,
+                localidad: this.localidad, provincia: this.provincia})
+    }
 }
 module.exports=Producto
