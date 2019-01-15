@@ -9,6 +9,9 @@ Mocha y Chai : npm i mocha chai --save-dev
 Request-promise: npm i reques-promise
 Request: npm i request
 Express: npm i express
+Axios: npm i axios
+Router: npm i react-router
+Router dom : npm i react-router-dom
 
 Correr Test: npm run test
 
@@ -17,5 +20,9 @@ URL del servidor: http://localhost:5000/api
 Posibles endpoint: 
 *http://localhost:5000/api/sitio/{Id_SITIO}
 *http://localhost:5000/api/sitio/{Id_SITIO}//productos?id_categoria={Id_CATEGORIA}
+
+Frontend:
+Levantar servidor: 
+Desde la carpeta frontend-react: npm start
 
 

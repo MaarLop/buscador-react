@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
 const router = express.Router();
-const bodyParser = require('body-parser');
 const port = process.env.PORT || 5000;
 const rp = require('request-promise')
 const buscadormod= require('../Modelo/Buscador')
@@ -13,13 +12,6 @@ router.use(function(req, res, next) {
     next();
 });
 
-app.get( '/', (req,res)=>{
-        res.send('recibido');
-
-})
-
-// app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(bodyParser.json());
 app.use(function(err, req, res, next) {
     if (err){
         throw new Error (400, "Bad request")
