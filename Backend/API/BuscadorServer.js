@@ -2,7 +2,6 @@ const express = require('express');
 const app = express();
 const router = express.Router();
 const bodyParser = require('body-parser');
-const error=require('./APIError');
 const port = process.env.PORT || 5000;
 const rp = require('request-promise')
 const buscadormod= require('../Modelo/Buscador')
@@ -10,26 +9,24 @@ const buscadormod= require('../Modelo/Buscador')
 const buscador= new buscadormod()
 
 router.use(function(req, res, next) {
-    console.log('Request received!');
+    console.log('Recibido');
     next();
 });
 
 app.get( '/', (req,res)=>{
-        res.send('received');
+        res.send('recibido');
 
 })
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.json());
 app.use(function(err, req, res, next) {
     if (err){
-        throw new error.PedidoFallido()
+        throw new Error (400, "Bad request")
     }
   });
 
 app.use('/api', router);
-// app.use(errorHandler);   
-
 
 router.route('/sitio/:id_sitio').get (function (req,res){
     buscador.setearFiltro(req.params.id_sitio)
@@ -38,8 +35,7 @@ router.route('/sitio/:id_sitio').get (function (req,res){
             res.json(buscador.categorias)
         })
         .catch((error)=>{
-                res.status(404)
-                res.json(error)
+                res.json({status: 404, errorCode: 'Pedido no encontrado'});
             })
     })
 
@@ -47,35 +43,19 @@ router.route('/sitio/:id_sitio').get (function (req,res){
         buscador.setearFiltro(req.params.id_sitio)
         buscador.setearFiltroDeCategoria(req.query.id_categoria)
         buscador.obtenerResultados().then(()=>{
-            buscador.obtenerProductosRequeridos().then((productos)=>{
-                res.json(productos)
+                buscador.obtenerProductosRequeridos().then((productos)=>{
+                    res.json(productos)
+                })
             })
-        })
-    
-
-            
-        })
-
-
-
-// function errorHandler(err,req, res, next){
-//     if (err instanceof error.APIError){
-//         res.status(err.status);
-//         res.json({status:err.status, errorCode: err.errorCode});
-//     }
-//     else{
-//         console.log('Ups, algo fallo. Intente nuevamente más tarde')
-//         res.status(500);
-//         res.json({status:500,errorCode:'Ups, algo fallo. Intente nuevamente más tarde'})
-//     }
-// }
+            .catch((error)=>{
+                res.json({status: 404, errorCode: 'Pedido no encontrado'});
+            })            
+            })
 
 router.use((req, res) => {
     res.status(404);
-    res.json({status: 404, errorCode: 'RESOURCE_NOT_FOUND'});
+    res.json({status: 404, errorCode: 'Pedido incorrecto'});
 });
-
-// router.use(errorHandler);
 
 app.listen(port);
 
