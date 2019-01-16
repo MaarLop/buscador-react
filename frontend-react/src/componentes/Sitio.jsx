@@ -10,6 +10,7 @@ class Sitio extends React.Component{
             sitio : {
                 id: '',
                 nombre: '',
+                bandera: '',
                 categorias: []
             },
             error: ''

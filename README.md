@@ -12,6 +12,7 @@ Express: npm i express
 Axios: npm i axios
 Router: npm i react-router
 Router dom : npm i react-router-dom
+Bootstrap: npm install --save bootstrap
 
 Correr Test: npm run test -s
 
@@ -26,6 +27,8 @@ Frontend:
 Levantar servidor: 
 Desde la carpeta frontend-react: npm start
 URL del servidor: http://localhost:3000 (ruta de Home)
+
+Para poder ver los elementos de vista, se tienen que activar (en el navegador) un plugin para encabezados CORS (Access-Control-Allow-Origin). Una vez instalado y encendido, se podran ver los elementos traidos del backend al frontend
 
 
 

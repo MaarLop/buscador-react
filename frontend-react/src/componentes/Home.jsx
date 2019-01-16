@@ -2,6 +2,7 @@ import React from 'react';
 import API from '../service/api';
 import { Link } from 'react-router-dom';
 import '../Home.css'
+import Axios from 'axios';
 
 class Home extends React.Component {
   constructor(props) {
@@ -26,7 +27,7 @@ class Home extends React.Component {
     crear() {
       return (
         <div className="container">
-          <div className="col-6">
+          <div className="col-12">
               <div className="card text-white bg-dark mb-3">
                 <h3 align="center" className="card-body align-items-center d-flex justify-content-center"> Paises</h3>
               </div>
@@ -46,11 +47,11 @@ class Home extends React.Component {
   
     createCard(sitio) {
       return ( 
-            <div align="center"className="card text-white bg-dark mb-3">
+            <div className="card text-white bg-dark mb-3"  align="center">
               <div className="card-body">
-              <Link to = {`/sitio/${sitio.id}`} >{sitio.name}</Link>    
-              </div>
-            </div>
+                  <h5 className="card-title"><Link to = {`/sitio/${sitio.id}`} >{sitio.name}</Link>   </h5>
+                </div> 
+              </div>  
             )
     }
   
@@ -65,22 +66,10 @@ class Home extends React.Component {
 
   render() {
     return (
-      // <main>
-      //   <h1 align="center">Buscador</h1>
-      //   {this.crear()}
-      // </main>
-
-      <div className="container">
-        <div className="col-sm-12">
-          <header>
-            <h1 align="center"> Buscador </h1>
-          </header>
-          {this.crear()}
-        </div>     
-      </div>
-    
-
-
+      <main>
+        <h1 align="center">Buscador</h1>
+        {this.crear()}
+      </main>
     );
   }
 }

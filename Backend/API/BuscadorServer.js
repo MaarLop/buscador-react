@@ -55,7 +55,7 @@ router.route('/sitio/:id_sitio').get (function (req,res){
 
     router.route('/sitios').get( function (req,res){
         buscador.obtenerSitios().then((sitios)=>{
-            res.json(   sitios)
+            res.json(sitios)
         })
         .catch((error)=>{
             res.json({status: 500, errorCode: 'Upss! Algo fallo, intente nuevamente mas tarde'});

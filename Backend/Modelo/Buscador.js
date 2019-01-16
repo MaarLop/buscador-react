@@ -74,20 +74,20 @@ class Buscador{
     obtenerSitios(){
         let cliente= new mercadolibremod ()
         return cliente.obtenerSitioValidos().then((_sitios)=>{
-            this.sitios= this.agregarSitios(_sitios)
-            return this.sitios
-        })
-        .catch((error)=>{
-            throw error
-        })
+                    this.sitios= this.agregarSitios(_sitios)
+                    return this.sitios
+                })
+                .catch((error)=>{
+                    throw error
+                })
     }
 
     agregarSitios(_listaDeSitios){
         let _sitios= []
         _listaDeSitios.forEach((_sitio)=>{
             let sitioRes= new sitio( _sitio.id, _sitio.name)
-            _sitios.push(sitioRes)
-        })
+                _sitios.push(sitioRes)
+            })
         return _sitios
     }
 
