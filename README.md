@@ -19,8 +19,8 @@ Correr Test: npm run test -s
 Levantar el servidor( desde la carpeta API que se encuentra dentro de Backend): node BuscadorServer.js
 URL del servidor: http://localhost:5000/api
 Posibles endpoint: 
-*http://localhost:5000/api/sitio/{Id_SITIO}  (obtener categorias desitio especifico )
-*http://localhost:5000/api/sitio/{Id_SITIO}//productos?id_categoria={Id_CATEGORIA} (obtener productos de categotia especifica )
+*http://localhost:5000/api/sitio/{Id_SITIO}/categorias  (obtener categorias desitio especifico con su info basica en pais )////////////
+*http://localhost:5000/api/sitio/{Id_SITIO}/productos?id_categoria={Id_CATEGORIA} (obtener productos de categotia especifica )
 *http://localhost:5000/api/sitios (obtener todos los sitios )
 
 Frontend:

@@ -29,14 +29,17 @@ app.use(function(err, req, res, next) {
 app.use('/api', router);
 app.use(cors());
 
-router.route('/sitio/:id_sitio').get (function (req,res){
+router.route('/sitio/:id_sitio/categorias').get (function (req,res){
     buscador.setearFiltro(req.params.id_sitio)
-    buscador.obtenerResultados()
-        .then(()=>{
-            res.json(buscador.categorias)
+    buscador.obtenerResultados().then(()=>{
+            res.json({
+                "pais":buscador.sitioSeleccionado(),
+                "categorias": buscador.categorias
+            })
         })
+    
         .catch((error)=>{
-                res.json({status: 404, errorCode: 'Pedido no encontrado'});
+                res.json( error);
             })
     })
 

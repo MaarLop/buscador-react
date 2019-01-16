@@ -8,8 +8,7 @@ class Buscador{
        this.categorias= []
        this.filtroPaises= ''
        this.filtroCategoria= ''
-       this.categoriaSeleccionada= null
-       this.sitios= []
+       this.sitios= this.obtenerSitios()
     }
 
     //Setea el filtro de pais para proceder con la busqueda
@@ -43,6 +42,13 @@ class Buscador{
         else{
             throw new Error ('Ingrese Pais')
         }
+    }
+
+    sitioSeleccionado(){
+       let sitioEncontrado = this.sitios.find((sitio)=>{
+                return sitio.id === this.filtroPaises
+        })
+            return sitioEncontrado
     }
 
     agregarCategorias(_listCategorias){
