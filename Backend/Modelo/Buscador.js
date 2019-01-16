@@ -1,6 +1,7 @@
 //mercadolibremod es al que se recurre cuando necesitamos hacer pedidos a la pagina de mercado libre
 const mercadolibremod= require('./MercadoLibreClient')
 const categoria= require('./Categoria')
+const sitio = require('./Sitio')
 
 class Buscador{
     constructor (){
@@ -8,6 +9,7 @@ class Buscador{
        this.filtroPaises= ''
        this.filtroCategoria= ''
        this.categoriaSeleccionada= null
+       this.sitios= []
     }
 
     //Setea el filtro de pais para proceder con la busqueda
@@ -68,7 +70,26 @@ class Buscador{
             return (_categoria.id === this.filtroCategoria)
         })
     }
+    
+    obtenerSitios(){
+        let cliente= new mercadolibremod ()
+        return cliente.obtenerSitioValidos().then((_sitios)=>{
+            this.sitios= this.agregarSitios(_sitios)
+            return this.sitios
+        })
+        .catch((error)=>{
+            throw error
+        })
+    }
 
+    agregarSitios(_listaDeSitios){
+        let _sitios= []
+        _listaDeSitios.forEach((_sitio)=>{
+            let sitioRes= new sitio( _sitio.id, _sitio.name)
+            _sitios.push(sitioRes)
+        })
+        return _sitios
+    }
 
 }
 

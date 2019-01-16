@@ -28,8 +28,8 @@ class MercadoLibreClient{
         const _options= 
         {
             url: url_base+ id_pais+'/search?category='+id_categoria+'&official_store_id=all',
-                json: true,
-            }
+            json: true,
+        }
             return rp.get(_options)
                 .then( (_responseProductos) =>{
                     this.promiseProductos= _responseProductos
@@ -37,7 +37,22 @@ class MercadoLibreClient{
                 })
                 .catch ((error)=> {
                     throw new Error(error)
-                })
+                })   
+    }
+
+    obtenerSitioValidos(){
+        const _options= 
+        {
+            url: url_base,
+            json: true
+        }
+        return rp.get(_options)
+            .then( (sitios)=>{
+                return sitios
+            })
+            .catch((error)=>{
+                throw error
+            })
     }
 }
 module.exports= MercadoLibreClient

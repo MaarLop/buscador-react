@@ -1,9 +1,10 @@
+import './App.css';
 import React from 'react';
 import { Switch, Route } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
-import Root from './Root.jsx';
+import Root from './componentes/Root.jsx';
 
-import Home from './Home'
+import Home from './componentes/Home'
 
 export default class App extends React.Component {
     render() {
@@ -18,4 +19,3 @@ export default class App extends React.Component {
         );
       }
     }
-    
