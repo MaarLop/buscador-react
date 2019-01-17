@@ -1,23 +1,3 @@
-.App {
-  /* display: -webkit-box;
-  display: -ms-flexbox; */
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.imageCard {
-  width: 220px;
-  height: 300px;
-}
-.padding-left{
-  left: 0px;
-}
 @media screen and (max-width: 1200px) {
   .imageCard {
     width: auto;
@@ -26,7 +6,7 @@
 }
 
 .badgeMargin {
-  margin-right: 0%
+  margin-right: 3%
 }
 
 .fixedAdd {
@@ -35,13 +15,6 @@
   bottom: 10%;
   z-index: 1030;
 }
-
-.card {
-  column-count: 4;
-  }
-  media-breakpoint-only{
-    column-count: 5;
-  }
 
 .btn-circle {
     width: 30px;
@@ -60,4 +33,4 @@
     border-radius: 35px;
     font-size: 24px;
     line-height: 1.33;
-  }
+}

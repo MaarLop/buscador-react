@@ -1,8 +1,6 @@
 import React from 'react';
 // import { Link } from 'react-router-dom';
-// import API from '../service/api.js';
 import Header from './Header.jsx';
-import Axios from 'axios'
 import API from '../service/api';
 
 class Categoria extends React.Component{
@@ -21,7 +19,6 @@ class Categoria extends React.Component{
                 this.setState({productos: data})
                 if (data ===[]){
                     this.setState({ error:  'No existe resultados para la busqueda' })
-                    console.log(this.state.error)
                 }
             }); 
             }.bind(this))
@@ -61,7 +58,6 @@ class Categoria extends React.Component{
       }
     
       createCard(producto) {
-        // let mercadoPagoActivo= 
         return ( 
                 <div class="card" >
                     <img class="card-img-top" src={producto.imagen} alt=" "/>
@@ -69,7 +65,8 @@ class Categoria extends React.Component{
                         <h5 class="card-title">{producto.titulo}</h5>
                     </div>
                     <div> 
-                    {producto.mercadoPago ? <span class="badge badge-success">MercadoPago</span> : <span class="badge badge-light">MercadoPago</span>}
+                        {console.log(producto)}         
+                    {producto.mercadoPago ? <span class="badge badge-false">MercadoPago</span> : <span class="badge badge-success">MercadoPago</span>}
                     </div>
                     <a href={producto.link} class="btn btn-warning">Ver mas...</a>
                 </div>)
