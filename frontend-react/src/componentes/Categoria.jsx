@@ -2,6 +2,7 @@ import React from 'react';
 // import { Link } from 'react-router-dom';
 import Header from './Header.jsx';
 import API from '../service/api';
+import Footer from './Footer'
 
 class Categoria extends React.Component{
     constructor(props){
@@ -49,27 +50,25 @@ class Categoria extends React.Component{
       crearCuadricula(){
         if( this.state.productos.length> 0){
             return this.splitSitios(4, this.state.productos).map((list, i) => (
-                <div className="container">
-                  <div className="card-deck" key={`sitio_${i}`}>
+                <div className="card-deck" key={`sitio_${i}`}>
                     {list.map(producto => this.createCard(producto))}
-                  </div>
                 </div>))
         }  
       }
     
       createCard(producto) {
-        return ( 
-                <div class="card" >
-                    <img class="card-img-top" src={producto.imagen} alt=" "/>
-                    <div class="card-body">
-                        <h5 class="card-title">{producto.titulo}</h5>
-                    </div>
-                    <div> 
-                        {console.log(producto)}         
-                    {producto.mercadoPago ? <span class="badge badge-false">MercadoPago</span> : <span class="badge badge-success">MercadoPago</span>}
-                    </div>
-                    <a href={producto.link} class="btn btn-warning">Ver mas...</a>
-                </div>)
+        return (
+            <div class="col-sm-3">
+                <div class="thumbnail">
+                    <img  src={producto.imagen} alt=" " className="image"/>
+                    <p><strong>{producto.titulo}</strong></p>
+                    <p>${producto.precio}</p>
+                        <div align="left">         
+                            {producto.mercadoPago ? <span span class="label label-success">MercadoPago</span> : <span class="label label-danger">No MercadoPago</span>}
+                        </div>
+                        <a href={producto.link} class="btn btn-warning btn-block">Ver mas...</a>
+                </div>
+            </div>)
       }
     
       splitSitios(number, listSitios) {
@@ -81,11 +80,12 @@ class Categoria extends React.Component{
         return splited;
       }
     render(){
-        return ( <div className="container">
-       <Header />.
-       <div className="container">
-       {this.crear()}</div>
-       </div>     )
+        return ( 
+        <div className="container">
+            <Header />
+            {this.crear()}
+            <Footer/>
+       </div> )
   
     }
 }

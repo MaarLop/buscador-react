@@ -16,3 +16,60 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+body * {
+  transition: all 300ms ease-in-out;
+}
+
+
+.container {
+  padding-left: 0px;
+  padding-right: 0px;
+  text-align: center;
+}
+
+.cards {
+  width: 30%;
+  margin: 5px;
+  text-align: left;
+  display: inline-table;
+}
+
+.navbar {
+  letter-spacing: 5px;
+}
+
+.thumbnail {
+
+  border: none;
+  
+}
+
+.thumbnail p {
+  margin-top: 15px;
+  color: rgb(61, 40, 40);
+  margin-bottom: 20px;
+line-height: 1.42857143;
+background-color: #fff;
+}
+
+.thumbnail img {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 10px;      
+}
+
+.jumbotron {
+  margin-bottom: 0;
+  background-color: #f4511e; /* Orange */
+  color: #ffffff;
+  padding: 100px 25px
+}
+
+.row {
+  display: table;
+  width: 100%; /*Optional*/
+  table-layout: fixed; /*Optional*/
+  border-spacing: 10px; /*Optional*/
+  padding: 400px 0;
+}

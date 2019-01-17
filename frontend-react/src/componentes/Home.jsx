@@ -1,7 +1,7 @@
 import React from 'react';
 import API from '../service/api';
 import { Link } from 'react-router-dom';
-import '../Home.css'
+import Footer from './Footer'
 
 class Home extends React.Component {
   constructor(props) {
@@ -36,11 +36,9 @@ class Home extends React.Component {
     }
     crearCuadricula(){
       return this.splitSitios(4, this.state.sitios).map((list, i) => (
-        <div className="container">
           <div className="card-deck" key={`sitio_${i}`}>
             {list.map(sitio => this.createCard(sitio))}
           </div>
-        </div>
       ));
     }
   
@@ -68,6 +66,7 @@ class Home extends React.Component {
       <main>
         <h1 align="center">Buscador</h1>
         {this.crear()}
+        <Footer/>
       </main>
     );
   }

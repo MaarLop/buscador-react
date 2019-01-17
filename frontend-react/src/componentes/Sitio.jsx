@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import API from '../service/api.js';
 import Header from './Header.jsx';
+import Footer from './Footer'
 
 class Sitio extends React.Component{
     constructor(props){
@@ -32,7 +33,7 @@ class Sitio extends React.Component{
     crear() {
         return (
           <div className="container">
-            <div className="col-12">
+            <div className="col">
                 <div className="card text-white bg-dark mb-3">
                   <h3 align="center" className="card-body align-items-center d-flex justify-content-center"> Categorias</h3>
                 </div>
@@ -42,10 +43,8 @@ class Sitio extends React.Component{
       }
       crearCuadricula(){
         return this.splitSitios(4, this.state.sitio.categorias).map((list, i) => (
-          <div className="container">
             <div className="card-deck" key={`sitio_${i}`}>
               {list.map(categoria => this.createCard(categoria))}
-            </div>
           </div>
         ));
       }
@@ -72,11 +71,12 @@ class Sitio extends React.Component{
       }
 
     render(){
-       return ( <div className="container">
-        <Header />.
-        <div className="container">
-        {this.crear()}</div>
-        </div>     )
+       return ( 
+        <main>
+          <Header />.
+        {this.crear()}
+        <Footer/>
+      </main>)
   
     }
 }
