@@ -1,5 +1,4 @@
 node_modules/pathval/README.md
-package-lock.json
 node_modules/.bin/_mocha
 node_modules/.bin/he
 node_modules/.bin/mkdirp
@@ -6947,4 +6946,4 @@ node_modules/inline-style-prefixer/generator/index.js
 node_modules/inline-style-prefixer/generator/maps/pluginMap.js
 node_modules/inline-style-prefixer/generator/maps/propertyMap.js
 node_modules/whatwg-fetch/dist/fetch.umd.js.flow
-package.json
+.vscode/launch.json

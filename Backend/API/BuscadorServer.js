@@ -16,10 +16,6 @@ router.use(function(req, res, next) {
 
 
 app.use(function(err, req, res, next) {
-
-    res.header("Access-Control-Allow-Origin", "*");
-    res.setHeader("Content-Type", "application/json");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
     if (err){
         throw new Error (400, "Bad request")
@@ -27,7 +23,7 @@ app.use(function(err, req, res, next) {
   });
 
 app.use('/api', router);
-app.use(cors());
+// app.use(cors());
 
 router.route('/sitio/:id_sitio/categorias').get (function (req,res){
     buscador.setearFiltro(req.params.id_sitio)
@@ -43,9 +39,9 @@ router.route('/sitio/:id_sitio/categorias').get (function (req,res){
             })
     })
 
-    router.route('/sitio/:id_sitio/productos').get (function (req,res){
+    router.route('/sitio/:id_sitio/:id_categoria/productos').get (function (req,res){
         buscador.setearFiltro(req.params.id_sitio)
-        buscador.setearFiltroDeCategoria(req.query.id_categoria)
+        buscador.setearFiltroDeCategoria(req.params.id_categoria)
         buscador.obtenerResultados().then(()=>{
                 buscador.obtenerProductosRequeridos().then((productos)=>{
                     res.json(productos)

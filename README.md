@@ -9,17 +9,17 @@ Mocha y Chai : npm i mocha chai --save-dev
 Request-promise: npm i reques-promise
 Request: npm i request
 Express: npm i express
-Axios: npm i axios
+Axios: npm i -s axios
 Router: npm i react-router
 Router dom : npm i react-router-dom
-Bootstrap: npm install --save bootstrap
+Bootstrap: npm install --save react-bootstrap bootstrap@3
 
 Correr Test: npm run test -s
 
 Levantar el servidor( desde la carpeta API que se encuentra dentro de Backend): node BuscadorServer.js
 URL del servidor: http://localhost:5000/api
 Posibles endpoint: 
-*http://localhost:5000/api/sitio/{Id_SITIO}/categorias  (obtener categorias desitio especifico con su info basica en pais )////////////
+*http://localhost:5000/api/sitio/{Id_SITIO}/categorias  (obtener categorias desitio especifico con su info basica en pais )
 *http://localhost:5000/api/sitio/{Id_SITIO}/productos?id_categoria={Id_CATEGORIA} (obtener productos de categotia especifica )
 *http://localhost:5000/api/sitios (obtener todos los sitios )
 

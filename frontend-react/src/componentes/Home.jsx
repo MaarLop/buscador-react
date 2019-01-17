@@ -2,7 +2,6 @@ import React from 'react';
 import API from '../service/api';
 import { Link } from 'react-router-dom';
 import '../Home.css'
-import Axios from 'axios';
 
 class Home extends React.Component {
   constructor(props) {
@@ -49,7 +48,7 @@ class Home extends React.Component {
       return ( 
             <div className="card text-white bg-dark mb-3"  align="center">
               <div className="card-body">
-                  <h5 className="card-title"><Link to = {`/sitio/${sitio.id}`} >{sitio.name}</Link>   </h5>
+                  <h5 className="card-title"><Link to = {`/${sitio.id}`} >{sitio.name}</Link>   </h5>
                 </div> 
               </div>  
             )

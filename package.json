@@ -26,6 +26,6 @@
     "request": "^2.88.0",
     "request-promise": "^4.2.2",
     "start": "^5.1.0"
-  },
-  "proxy": "http://localhost:5000"
+  }
+  
 }

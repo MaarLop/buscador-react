@@ -15,8 +15,8 @@ export default class App extends React.Component {
             <Root>
               <Switch>
                 <Route exact path="/" component={Home} />
-                <Route exact path="/sitio/:id_sitio" component={Sitio} />
-                <Route exact path="/sitio/:id_sitio/categoria/:id_categiria" component={Categoria} />
+                <Route exact path="/:id_sitio" component={Sitio} />
+                <Route exact path="/:id_sitio/:idcategoria" component={Categoria} />
               </Switch>
             </Root>
           </BrowserRouter>
