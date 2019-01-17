@@ -16,22 +16,9 @@ class Header extends React.Component{
 
   render() {
     return (
-      
-//       <div class="jumbotron">
-//   <div class="container-fluid text-center">
-//   <Link to ="/" ata-toggle="tooltip" title="Página principal"><h1>  Buscador</h1> </Link>
-//   </div>
-// </div>
-      // <div className="navbar-brand" >
-      //   <div className="container-fluid">
-      //     
-      //     <h1>Buscador</h1>
-      //     
-      //     </div>
-      // </div>
-<div className= "container"> 
+    <div className= "container"> 
       <nav className="navbar nabg-light bg-dark justify-content-between">
-      <button type="button" className="navbar-brand btn btn-link" > <span className="oi oi-book" /> Buscador</button>
+      <button type="button" className="navbar-brand btn btn-link" onClic= {this.goToHome()}> <span className="oi oi-book" /> Buscador</button>
        </nav> </div>
     );
   }
