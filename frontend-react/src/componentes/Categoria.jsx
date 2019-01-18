@@ -59,12 +59,13 @@ class Categoria extends React.Component{
       createCard(producto) {
         return (
             <div class="col-sm-3">
-                <div class="thumbnail">
+                <div class="card bg-light mb-3 max-width: 18rem">
                     <img  src={producto.imagen} alt=" " className="image"/>
                     <p><strong>{producto.titulo}</strong></p>
                     <p>${producto.precio}</p>
                         <div align="left">         
-                            {producto.mercadoPago ? <span span class="label label-success">MercadoPago</span> : <span class="label label-danger">No MercadoPago</span>}
+                            <span span class="label label-success">{producto.mercadoPago ? 'MercadoPago' : 'No MercadoPago'}
+                            </span>
                         </div>
                         <a href={producto.link} class="btn btn-warning btn-block">Ver mas...</a>
                 </div>

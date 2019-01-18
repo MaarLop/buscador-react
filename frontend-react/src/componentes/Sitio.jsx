@@ -73,7 +73,7 @@ class Sitio extends React.Component{
     render(){
        return ( 
         <main>
-          <Header />.
+          <Header />
         {this.crear()}
         <Footer/>
       </main>)

@@ -5,10 +5,13 @@ El modelo se encuentra desarrollado en JavaScript, con la metodologia TDD usando
 La API esta tambien hecha en JavaScript.
 
 Dependencias instaladas con node:
+En el backend:
 Mocha y Chai : npm i mocha chai --save-dev
 Request-promise: npm i reques-promise
 Request: npm i request
 Express: npm i express
+En el frontend :
+React npm i react
 Axios: npm i -s axios
 Router: npm i react-router
 Router dom : npm i react-router-dom

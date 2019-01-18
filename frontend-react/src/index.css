@@ -23,31 +23,38 @@ body * {
 
 
 .container {
-  padding-left: 0px;
-  padding-right: 0px;
+  width: 100%;
+  padding-bottom: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  /* padding-left: 0px;
+  padding-right: 0px; */
   text-align: center;
 }
 
 .cards {
-  width: 30%;
-  margin: 5px;
-  text-align: left;
-  display: inline-table;
+    margin: 0 auto; /* Added */
+    float: none; /* Added */
+    margin-bottom: 10px; /* Added */
+    width: 50%;
+    margin: 5px;
+    text-align: center;
+
+    display: flex;
+    justify-content: space-between;
 }
 
 .navbar {
-  letter-spacing: 5px;
+flex-wrap: wrap;
+align-items: center;
+justify-content: space-between;
+padding: .5rem 1rem;
 }
 
-.thumbnail {
-
-  border: none;
-  
-}
 
 .thumbnail p {
   margin-top: 15px;
-  color: rgb(61, 40, 40);
+  color: #fff;
   margin-bottom: 20px;
 line-height: 1.42857143;
 background-color: #fff;
