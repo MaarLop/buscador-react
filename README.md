@@ -1,16 +1,16 @@
-# Trinomio-Buscador
+# Trinomio-Buscador <br>
 
-##Backend:
+##Backend:<br>
 El modelo y la API Rest se encuentran desarrolladas en JavaScript, con la metodologia TDD usando Mocha y Chai para dicho proceso de testing (en caso del modelo).
 
 ###Dependencias instaladas con node:
-**__ - Mocha y Chai :__**
+**_ - Mocha y Chai :_**
 npm i mocha chai --save-dev
-**__ - Request-promise:__**
+**_ - Request-promise:_**
 npm i reques-promise
-**__ - Request:__**
+**_ - Request:_**
 npm i request
-**__ - Express:__**
+**_ - Express:_**
 npm i express
 
 
@@ -36,15 +36,15 @@ Cuenta con 3 endpoint:
  3. Ya seleccionada la categoría, se mostraran los diferentes productos que se encuentran ella con su información mas relevante
 
 ###Dependencias instaladas con node:
-**__ - React:__**
+**_ - React:_**
 npm i react
-**__ - Axios:__**
+**_ - Axios:_**
 npm i -s axios
-**__ - Router:__**
+**_ - Router:_**
 npm i react-router
-**__ - Router dom :__**
+**_ - Router dom :_**
 npm i react-router-dom
-**__ - Bootstrap:__**
+**_ - Bootstrap:_**
 ppm install --save react-bootstrap bootstrap@4
 
 ###Levantar servidor: 
