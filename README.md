@@ -1,10 +1,10 @@
 # Trinomio-Buscador
 
-##Backend
+## Backend
 El modelo y la API Rest se encuentran desarrolladas en JavaScript, con la metodologia TDD usando Mocha y Chai para dicho proceso de testing (en caso del modelo).
 
 ###Dependencias instaladas con node
--**_Mocha y Chai _**
+-**_Moch a y Chai _**
 npm i mocha chai --save-dev
 -**_Request-promise_**
 npm i reques-promise
@@ -14,13 +14,13 @@ npm i request
 npm i express
 
 
-###Correr Test
+### Correr Test
 npm run test -s
 
-###Levantar el servidor( desde la carpeta API que se encuentra dentro de Backend)
+### Levantar el servidor( desde la carpeta API que se encuentra dentro de Backend)
 node BuscadorServer.js
 
-###URL del servidor
+### URL del servidor
 http://localhost:5000/api
 
 ###Posibles endpoint 
@@ -29,13 +29,13 @@ http://localhost:5000/api
 -http://localhost:5000/api/sitios (obtener todos los sitios )
 
 
-##Frontend:
+## Frontend:
 Cuenta con 3 endpoint
  1. Para listar los sitios validos para Mercado Libre.
  2. Una vez elegido el sitio, se listaran las diferentes categrias que este tiene.
  3. Ya seleccionada la categoría, se mostraran los diferentes productos que se encuentran ella con su información mas relevante.
 
-###Dependencias instaladas con node
+### Dependencias instaladas con node
 -**_React_**
 npm i react
 -**_Axios_**
@@ -47,8 +47,8 @@ npm i react-router-dom
 -**_Bootstrap_**
 npm install --save react-bootstrap bootstrap@4
 
-###Levantar servidor
+### Levantar servidor
 Desde la carpeta frontend-react: npm start
 
-###URL
+### URL
 http://localhost:3000
