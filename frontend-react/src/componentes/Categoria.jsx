@@ -3,6 +3,7 @@ import React from 'react';
 import Header from './Header.jsx';
 import API from '../service/api';
 import Footer from './Footer'
+const imagenDef = require('../sinImagen_opt.jpg')
 
 class Categoria extends React.Component{
     constructor(props){
@@ -63,18 +64,40 @@ class Categoria extends React.Component{
         return (
             <div class="col-sm-3">
                 <div class="card bg-light mb-3 max-width: 18rem">
-                    <img  src={producto.imagen} alt=" " className="image"/>
-                    <p><strong>{producto.titulo}</strong></p>
-                    <p>${producto.precio}</p>
-                        <div align="left">         
+                <div class="img-container s-ratio-16-9 s-radius-tr s-radius-tl">
+                <img  src={this.checkearImagen(producto.imagen)} alt=" " className="image"/>
+                </div>
+                <div class="card__data s-border s-radius-br s-radius-bl s-pxy-2">
+                <div class= "text-container">
+                    <h3 class="t5 s-mb-2 s-center">
+                        <p><strong>{producto.titulo}</strong></p>
+                        <p>${producto.precio}</p>
+                    </h3>
+                    </div>
+                </div>
+                    <div class="s-mb-2 s-main-center">
+                        <div class="card__teacher" align= "left">
                             <span span class="label label-success">{producto.mercadoPago ? 'MercadoPago' : 'No MercadoPago'}
                             </span>
                         </div>
-                        <a href={producto.link} class="btn btn-warning btn-block">Ver mas...</a>
+                        <div class="s-main-center">
+                            
+                        </div>      
+                    </div><a class="btn btn-warning btn-block" href={producto.link}>Ver más</a>
                 </div>
-            </div>)
+            </div>) 
       }
     
+      checkearImagen(imagen){
+          console.log(imagen)
+          if( imagen !==''){
+              return imagen
+          }
+          else{
+              return (imagenDef)
+          }
+      }
+
       splitSitios(number, listSitios) {
         const numberOfRows = Math.ceil((listSitios ? listSitios.length : 0) / number);
         const splited = [];

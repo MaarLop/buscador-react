@@ -5,7 +5,7 @@ class Footer extends React.Component{
   render() {
     return (
 <footer class="container-fluid bg-4 text-center">
-       <a href="" title="To Top">
+       <a href="#" title="To Top">
             <span class="glyphicon glyphicon-chevron-up"></span>
        </a>
        <p>Susana Mariel Lopez </p>

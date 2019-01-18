@@ -41,7 +41,25 @@ body * {
     text-align: center;
 
     display: flex;
+    flex-direction: column;
+    flex: 1 1;
     justify-content: space-between;
+    margin-bottom: 100px;
+  }
+ .text-container{
+  padding-top: 30px;
+  padding-bottom: 10px;
+  width: 100%;
+  height: 160px;
+ }
+  .label {
+    padding: .3em .7em .4em;
+    font-size: 100%;
+    margin-bottom: 200px
+}
+
+.image{
+  padding-top: 10px
 }
 
 .navbar {
@@ -51,32 +69,3 @@ justify-content: space-between;
 padding: .5rem 1rem;
 }
 
-
-.thumbnail p {
-  margin-top: 15px;
-  color: #fff;
-  margin-bottom: 20px;
-line-height: 1.42857143;
-background-color: #fff;
-}
-
-.thumbnail img {
-  width: 100%;
-  height: 100%;
-  margin-bottom: 10px;      
-}
-
-.jumbotron {
-  margin-bottom: 0;
-  background-color: #f4511e; /* Orange */
-  color: #ffffff;
-  padding: 100px 25px
-}
-
-.row {
-  display: table;
-  width: 100%; /*Optional*/
-  table-layout: fixed; /*Optional*/
-  border-spacing: 10px; /*Optional*/
-  padding: 400px 0;
-}
