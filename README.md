@@ -35,6 +35,9 @@ Cuenta con 3 endpoint
  3. Ya seleccionada la categoría, se mostraran los diferentes productos que se encuentran ella con su información mas relevante.
 
 ### Dependencias instaladas con node
+
+- **Start**
+ `npm i start`
 - **_React_**
  `npm i react`
 - **_Axios_**
