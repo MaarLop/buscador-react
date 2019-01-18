@@ -17,14 +17,11 @@ class Categoria extends React.Component{
         fetch(`/api/sitio/${this.props.match.params.id_sitio}/${this.props.match.params.idcategoria}/productos`)
         .then(function(response){
             response.json().then((data) => {
-                this.setState({productos: data})
-                if (data ===[]){
-                    this.setState({ error:  'No existe resultados para la busqueda' })
-                }
+                this.setState({productos: data, error: this.checkearData(data) })
             }); 
             }.bind(this))
-            .catch((error) => {    
-                this.setState({ error:  'No existe resultados para la busqueda' })
+            .catch((error) => { 
+                this.setState({ error: error.errorCode })
             });
     }
         
@@ -35,11 +32,17 @@ class Categoria extends React.Component{
         .catch((error) => this.setState({ error: error.response.data.error }));  
         }
       }
+
+      checkearData(data){
+          if (data.length===0){
+              return 'Aun no hay contenido para ver, intenta nuevamente más adelante'
+          }
+      }
         
     crear() {
         return (
           <div className="container">
-            <div className="col-12">
+            <div className="col-sm-10 col-md-10 col-lg-12 ">
                 <div className="card text-white bg-dark mb-3">
                   <h3 align="center" className="card-body align-items-center d-flex justify-content-center"> Productos</h3>
                 </div>
@@ -48,13 +51,13 @@ class Categoria extends React.Component{
           </div>)
       }
       crearCuadricula(){
-        if( this.state.productos.length> 0){
-            return this.splitSitios(4, this.state.productos).map((list, i) => (
+        return this.splitSitios(4, this.state.productos).map((list, i) => (
+            <div className="col-sm-10 col-md-10 col-lg-12 ">
                 <div className="card-deck" key={`sitio_${i}`}>
                     {list.map(producto => this.createCard(producto))}
-                </div>))
+                </div>
+            </div>))
         }  
-      }
     
       createCard(producto) {
         return (
@@ -84,7 +87,11 @@ class Categoria extends React.Component{
         return ( 
         <div className="container">
             <Header />
+            
             {this.crear()}
+            <h1>{this.state.error}</h1>
+            <br/>
+            
             <Footer/>
        </div> )
   

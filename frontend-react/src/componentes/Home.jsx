@@ -66,6 +66,7 @@ class Home extends React.Component {
       <main>
         <h1 align="center">Buscador</h1>
         {this.crear()}
+        {this.state.error}
         <Footer/>
       </main>
     );

@@ -61,14 +61,26 @@ class Buscador{
     }
     
     obtenerProductosRequeridos(){
-        this.encontrarCategoria()
-            return this.categoriaSeleccionada.obtenerProductos(this.filtroPaises)
+        try{
+            this.encontrarCategoria()
+            
+            if (this.categoriaSeleccionada !== null){
+                return this.categoriaSeleccionada.obtenerProductos(this.filtroPaises)
                 .then(()=>{
                     return this.categoriaSeleccionada.productos
                 })
                 .catch((err)=>{
                     throw err
                 })
+            }
+            else 
+            {
+                throw new Error ('Algo fallo')
+            }
+        }
+        catch(er){
+            throw (er)
+        }
     }
 
     encontrarCategoria(){

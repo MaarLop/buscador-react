@@ -43,12 +43,16 @@ router.route('/sitio/:id_sitio/categorias').get (function (req,res){
         buscador.setearFiltro(req.params.id_sitio)
         buscador.setearFiltroDeCategoria(req.params.id_categoria)
         buscador.obtenerResultados().then(()=>{
-                buscador.obtenerProductosRequeridos().then((productos)=>{
+                
+            buscador.obtenerProductosRequeridos().then((productos)=>{
                     res.json(productos)
                 })
             })
             .catch((error)=>{
-                res.json({status: 404, errorCode: 'Pedido no encontrado'});
+                let _err= new Error ('No hay productos aun, vuelva a intentar nuevamente mas adelante')
+                throw _err
+                res.status(404)
+                res.json({errorCode: _err.message})
             })            
     })
 
@@ -68,4 +72,4 @@ router.use((req, res) => {
 
 app.listen(port);
 
-console.log('Iniciando servidor en el pueto ' +port);
+console.log('Iniciando servidor en el puerto ' +port);
