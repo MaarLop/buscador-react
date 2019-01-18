@@ -101,11 +101,16 @@ class Buscador{
     }
 
     agregarSitios(_listaDeSitios){
+        /*En este caso, se debe sacar de la lista de sitios a MPT ya que, por alguna causa desconocida de la api
+        de Mercado Librer, figura en la lista de sitios validos pero al momento de hacer un pedido a la misma api
+        esta retorna un error de que no es valido el sitio*/
         let _sitios= []
         _listaDeSitios.forEach((_sitio)=>{
-            let sitioRes= new sitio( _sitio.id, _sitio.name)
+            if (_sitio.id !== 'MPT'){
+                let sitioRes= new sitio( _sitio.id, _sitio.name)
                 _sitios.push(sitioRes)
-            })
+            }
+        })
         return _sitios
     }
 

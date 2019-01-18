@@ -1,5 +1,4 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
 import Header from './Header.jsx';
 import API from '../service/api';
 import Footer from './Footer'

@@ -26,7 +26,7 @@ class Home extends React.Component {
     crear() {
       return (
         <div className="container">
-          <div className="col-12">
+          <div className="col-sm-10 col-md-10 col-lg-12">
               <div className="card text-white bg-dark mb-3">
                 <h3 align="center" className="card-body align-items-center d-flex justify-content-center"> Paises</h3>
               </div>
@@ -44,12 +44,13 @@ class Home extends React.Component {
   
     createCard(sitio) {
       return ( 
+        <div class="col-sm-3">
             <div className="card text-white bg-dark mb-3"  align="center">
               <div className="card-body">
                   <h5 className="card-title"><Link to = {`/${sitio.id}`} >{sitio.name}</Link>   </h5>
                 </div> 
-              </div>  
-            )
+              </div>
+          </div>)
     }
   
     splitSitios(number, listSitios) {
