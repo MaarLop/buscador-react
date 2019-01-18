@@ -44,7 +44,7 @@ class Home extends React.Component {
   
     createCard(sitio) {
       return ( 
-        <div class="col-sm-3">
+        <div className="col-sm-3">
             <div className="card text-white bg-dark mb-3"  align="center">
               <div className="card-body">
                   <h5 className="card-title"><Link to = {`/${sitio.id}`} >{sitio.name}</Link>   </h5>

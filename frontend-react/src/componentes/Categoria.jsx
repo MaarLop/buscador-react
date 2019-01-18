@@ -61,28 +61,28 @@ class Categoria extends React.Component{
     
       createCard(producto) {
         return (
-            <div class="col-sm-3">
-                <div class="card bg-light mb-3 max-width: 18rem">
-                <div class="img-container s-ratio-16-9 s-radius-tr s-radius-tl">
+            <div className="col-sm-3">
+                <div className="card bg-light mb-3 max-width: 18rem">
+                <div className="img-container s-ratio-16-9 s-radius-tr s-radius-tl">
                 <img  src={this.checkearImagen(producto.imagen)} alt=" " className="image"/>
                 </div>
-                <div class="card__data s-border s-radius-br s-radius-bl s-pxy-2">
-                <div class= "text-container">
-                    <h3 class="t5 s-mb-2 s-center">
+                <div className="card__data s-border s-radius-br s-radius-bl s-pxy-2">
+                <div className= "text-container">
+                    <h3 className="t5 s-mb-2 s-center">
                         <p><strong>{producto.titulo}</strong></p>
                         <p>${producto.precio}</p>
                     </h3>
                     </div>
                 </div>
-                    <div class="s-mb-2 s-main-center">
-                        <div class="card__teacher" align= "left">
-                            <span span class="label label-success">{producto.mercadoPago ? 'MercadoPago' : 'No MercadoPago'}
+                    <div className="s-mb-2 s-main-center">
+                        <div className="card__teacher" align= "left">
+                            <span span className="label label-success">{producto.mercadoPago ? 'MercadoPago' : 'No MercadoPago'}
                             </span>
                         </div>
-                        <div class="s-main-center">
+                        <div className="s-main-center">
                             
                         </div>      
-                    </div><a class="btn btn-warning btn-block" href={producto.link}>Ver más</a>
+                    </div><a className="btn btn-warning btn-block" href={producto.link}>Ver más</a>
                 </div>
             </div>) 
       }

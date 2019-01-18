@@ -1,6 +1,5 @@
 import React from 'react';
 import { withRouter } from 'react-router';
-import { Link } from 'react-router-dom';
 
 class Header extends React.Component{
   constructor(props) {
@@ -21,7 +20,7 @@ class Header extends React.Component{
     return (
     <div className= "container"> 
       <nav className="navbar bg-dark justify-content-between" align= "center">
-      <button type="button" class="btn btn-dark btn-justified"  onClick={() => this.goToHome()}>
+      <button type="button" className="btn btn-dark btn-justified"  onClick={() => this.goToHome()}>
           <h1 > Buscador</h1>
       </button>
        </nav> </div>
