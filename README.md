@@ -1,4 +1,4 @@
-# Trinomio-Buscador
+# buscador-react
 
 ## Backend
 El modelo y la API Rest se encuentran desarrolladas en JavaScript, con la metodologia TDD usando Mocha y Chai para dicho proceso de testing (en caso del modelo).
